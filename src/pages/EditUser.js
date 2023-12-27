@@ -9,7 +9,7 @@ const EditUser = ({ match }) => {
     image: "",
   });
   useEffect(() => {
-    fetch(`http://localhost:5000/user/${match.params.id}`)
+    fetch(`https://contact-server-nine.vercel.app/user/${match.params.id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -25,7 +25,7 @@ const EditUser = ({ match }) => {
       formData.append("image", data.image);
       formData.append("name", data.name);
 
-      const res = await fetch(`http://localhost:5000/user/${match.params.id}`, {
+      const res = await fetch(`https://contact-server-nine.vercel.app/user/${match.params.id}`, {
         method: "PUT",
         body: formData,
       });

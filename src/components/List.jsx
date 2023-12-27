@@ -8,7 +8,7 @@ const List = ({ contacts, setContacts }) => {
   console.log(contacts);
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/v1/${id}`, {
+      const res = await fetch(`https://contact-server-nine.vercel.app/api/v1/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {

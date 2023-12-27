@@ -28,7 +28,8 @@ const AddForm = () => {
       formData.append("name", data.name);
       formData.append("age", data.age);
 
-      const res = await fetch(`http://localhost:8000/api/v1/add`, {
+      // const res = await fetch(`http://localhost:8000/api/v1/add`, {
+      const res = await fetch(`https://contact-server-nine.vercel.app/api/v1/add`, {
         method: "POST",
         body: formData,
       });

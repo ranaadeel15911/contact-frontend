@@ -10,7 +10,7 @@ function App() {
   const [contacts, setContacts] = useState([]);
   const loadContacts = async () => {
     try {
-      const results =await axios.get("http://localhost:8000/api/v1");
+      const results =await axios.get("https://contact-server-nine.vercel.app/api/v1");
       console.log("here is the response: ");
       console.log(contacts);
       setContacts(results.data);

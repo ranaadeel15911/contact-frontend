@@ -14,7 +14,7 @@ const EditContact = () => {
     image: "",
   });
   useEffect(() => {
-    fetch(`http://localhost:8000/api/v1/${match.id}`)
+    fetch(`https://contact-server-nine.vercel.app/api/v1/${match.id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
@@ -38,7 +38,7 @@ const EditContact = () => {
       formData.append("name", data.name);
       formData.append("age", data.age);
 
-      const res = await fetch(`http://localhost:8000/api/v1/edit/${match.id}`, {
+      const res = await fetch(`https://contact-server-nine.vercel.app/api/v1/edit/${match.id}`, {
         method: "PUT",
         body: formData,
       });
