@@ -6,7 +6,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await fetch(`https://contact-server-nine.vercel.app/user`);
+      const res = await fetch(`http://localhost:5000/user`);
       const data = await res.json();
       setUsers(data);
     };
@@ -15,7 +15,7 @@ const Home = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`https://contact-server-nine.vercel.app/api/v1/delete/${id}`, {
+      const res = await fetch(`/api/v1/delete/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {

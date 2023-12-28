@@ -14,6 +14,7 @@ const EditContact = () => {
     image: "",
   });
   useEffect(() => {
+    // fetch(`http://localhost:8000/api/v1/${match.id}`)
     fetch(`https://contact-server-nine.vercel.app/api/v1/${match.id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -32,22 +33,26 @@ const EditContact = () => {
   };
 
   const handleSubmit = async () => {
+    // console.log('hi')
     try {
+      // console.log("hi")
       let formData = new FormData();
       formData.append("image", data.image);
       formData.append("name", data.name);
       formData.append("age", data.age);
-
-      const res = await fetch(`https://contact-server-nine.vercel.app/api/v1/edit/${match.id}`, {
+console.log("hi")
+      // const res = await fetch(`http://localhost:8000/api/v1/${match.id}`, {
+      const res = await fetch(`https://contact-server-nine.vercel.app/api/v1/${match.id}`, {
         method: "PUT",
         body: formData,
       });
+      console.log(res)
       if (res.ok) {
         setData({ name: "", image: "" ,age: ""});
         history("/");
       }
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data.message);
     }
   };
   return (

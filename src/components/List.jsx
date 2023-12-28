@@ -3,16 +3,15 @@ import "../App.css";
 
 import { Link } from "react-router-dom";
 import { MdDelete, MdEdit } from "react-icons/md";
-import axios from "axios";
 
 const List = ({ contacts, setContacts }) => {
   console.log(contacts);
   const handleDelete = async (id) => {
     try {
-      // const res = await fetch(`https://contact-server-nine.vercel.app/api/v1/${id}`, {
-      //   method: "DELETE",
-      // });
-      const res = await axios.delete(`https://contact-server-nine.vercel.app/api/v1/${id}`)
+      // const res = await fetch(`http://localhost:8000/api/v1/${id}`, {
+      const res = await fetch(`https://contact-server-nine.vercel.app/api/v1/${id}`, {
+        method: "DELETE",
+      });
       if (res.ok) {
         const updatedContacts = contacts.filter((user) => user._id !== id);
         setContacts(updatedContacts);

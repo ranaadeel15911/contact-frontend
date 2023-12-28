@@ -4,7 +4,6 @@ import { GrUploadOption } from "react-icons/gr";
 // import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const AddForm = () => {
   const history = useNavigate();
@@ -30,11 +29,10 @@ const AddForm = () => {
       formData.append("age", data.age);
 
       // const res = await fetch(`http://localhost:8000/api/v1/add`, {
-      // const res = await fetch(`https://contact-server-nine.vercel.app/api/v1/add`, {
-      //   method: "POST",
-      //   body: formData,
-      // });
-      const res = await axios.post("https://contact-server-nine.vercel.app/api/v1/add",formData)
+      const res = await fetch(`https://contact-server-nine.vercel.app/api/v1/add`, {
+        method: "POST",
+        body: formData,
+      });
       if (res.ok) {
         setData({ name: "", image: "",age: "" });
         history("/");
